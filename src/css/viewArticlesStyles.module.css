@@ -1,0 +1,16 @@
+
+        .viewArticle {
+
+            width: 100%;
+        }
+
+        .viewHeader {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+
+        }
+
+        .viewArticlesmgWidth {
+            width: 70%;
+        }

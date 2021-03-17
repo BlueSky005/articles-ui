@@ -1,0 +1,72 @@
+.articleDesc {
+    display: flex;
+    flex-grow: 1;
+    flex-flow: column wrap;
+    flex-basis: 40%;
+    padding: 0.5rem;
+}
+
+.submittedArticleImgWidth {
+    width: 10rem;
+}
+
+/* .editIconColor {
+    color: '#e6c200';
+} */
+.editIconColor:hover {
+    cursor: pointer;
+}
+
+/* .deleteIconColor {
+    background-color: '#cc4600';
+} */
+.deleteIconColor:hover {
+    cursor: pointer;
+}
+
+
+    /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+.submittedArticles {
+
+width: 80%;
+
+}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+.submittedArticles {
+
+width: 80%;
+
+}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+.submittedArticles {
+
+width: 60%;
+
+}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+.submittedArticles {
+
+width: 60%;
+
+}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+.submittedArticles {
+
+width: 60%;
+
+}
+}

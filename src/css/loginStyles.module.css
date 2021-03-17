@@ -1,0 +1,98 @@
+/* .loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    /* width: 50%;
+}
+
+/* .itemCenter {
+    text-align: center;
+} */
+
+ /* .customCard  {
+    height: 55%;
+    box-shadow: 0 4px 8px 0 rgb( 0 0 0 / 20%), 0 6px 20px 0 rgb( 0 0 0 / 19%);
+  } */
+
+body {
+    background-color: #eeecc0;
+}
+
+   .myContainer {
+            display: flex;
+            /* flex-direction: row; */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        .customLinks:hover {
+            text-decoration: none;
+            color: black;
+        }
+
+        .Center {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .loginCard {
+        width: 90%;
+    }
+    .loginCardContent {
+        width: 100%;
+    }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .loginCard {
+        width: 90%;
+    }
+    .loginCardContent {
+        width: 100%;
+    }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    .loginCard {
+        width: 60%;
+    }
+    .loginCardContent {
+        width: 80%;
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    .loginCard {
+        width: 40%;
+    }
+    .loginCardContent {
+        width: 80%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+    .loginCard {
+        width: 30%;
+    }
+    .loginCardContent {
+        width: 80%;
+    }
+
+}
