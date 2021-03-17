@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import loginStyles from '../css/loginStyles.module.css'
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { FaUserAlt, FaUnlock } from 'react-icons/fa';
 // import { loginUser } from '../redux/users/userActions';

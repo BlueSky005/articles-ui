@@ -5,7 +5,7 @@ import Header from './Header';
 import PlaceHolderImg1 from '../assets/nothumb.jpg';
 import PlaceHolderImg2 from '../assets/nothumb.jpg';
 import EditArticleStyles from '../css/editArticleStyles.module.css';
-import { editArticle, resetWriteAtricleUI, fetchSelectedEditArticle } from '../redux/articles/articleActions';
+import { editArticle, resetArticleEditStatus, fetchSelectedEditArticle } from '../redux/articles/articleActions';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -20,6 +20,7 @@ function EditArticle () {
 
     const [editArticleTitle, setEditArticleTitle] = useState( '' );
     const [editArticleDesc, setEditArticleDesc] = useState( '' );
+    const [editArticleImg, setEditArticleImg] = useState( '' );
 
     const loggedInStatus = useSelector( state => state.userLoginStatus );
 
@@ -44,26 +45,31 @@ function EditArticle () {
     const loggedInUserName = useSelector( state => state.loggedInUserName );
     const loggedInId = useSelector( state => state.loggedInId );
 
-    const handleTitleChange = event => {
-        // setEditArticleTitle( event.target.value );
-        selectedEditArticleTitle = event.target.value;
+    const handleTitleChange = e => {
+
+        setEditArticleTitle( e.target.value );
     }
 
-    const handleDescChange = event => {
-        // setEditArticleDesc( event.target.value );
-        selectedEditArticleDesc = event.target.value;
+    const handleDescChange = e => {
+
+        setEditArticleDesc( e.target.value );
+    }
+
+    const handleImgChange = e => {
+        setEditArticleImg( e.target.value );
     }
 
     useEffect( () => {
         // alert( selectedEditArticleId );
-        if ( loggedInStatus === 1 )
-
-            //selectedArticleId
+        if ( loggedInStatus === 1 ) {
             setEditArticleTitle( selectedEditArticleTitle );
+            setEditArticleDesc( selectedEditArticleDesc );
+            setEditArticleImg( selectedEditArticleImage );
 
-        //alert( 'before dispatch' );
-        // dispatch( fetchSelectedEditArticle( selectedEditArticleId ) ); // remove it later
-        editArticleTitleRef.current.focus();
+            //alert( 'before dispatch' );
+            // dispatch( fetchSelectedEditArticle( selectedEditArticleId ) ); // remove it later
+            editArticleTitleRef.current.focus();
+        }
     }, [] )
 
     useEffect( () => {
@@ -79,7 +85,7 @@ function EditArticle () {
                 .then( ( willDelete ) => {
                     if ( willDelete ) {
 
-                        // dispatch( resetWriteAtricleUI() ); // todo
+                        dispatch( resetArticleEditStatus() );
                     }
                 } );
 
@@ -171,13 +177,13 @@ function EditArticle () {
                 <div className={`${EditArticleStyles.writeArticleForm} container`}>
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">TITLE {selectedEditArticleTitle} </label>
-                        <input ref={editArticleTitleRef} value={selectedEditArticleTitle} autoComplete="off" type="text" onChange={handleTitleChange} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the title" />
+                        <input ref={editArticleTitleRef} value={editArticleTitle} autoComplete="off" type="text" onChange={handleTitleChange} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the title" />
 
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="exampleTextarea">DESCRIPTION</label>
-                        <textarea value={selectedEditArticleDesc} onChange={handleDescChange} placeholder="Enter the article description" className="form-control" id="exampleTextarea" rows="3"></textarea>
+                        <textarea value={editArticleDesc} onChange={handleDescChange} placeholder="Enter the article description" className="form-control" id="exampleTextarea" rows="3"></textarea>
                     </div>
 
                     <div>
@@ -192,9 +198,9 @@ function EditArticle () {
                         </div>
 
                         {url ? (
-                            <img src={url || selectedEditArticleImage} className="img-fluid" alt="logo" />
+                            <img src={url || editArticleImg} onChange={handleImgChange} className="img-fluid" alt="logo" />
                         ) : (
-                            <img src={selectedEditArticleImage || PlaceHolderImg2} className="App-logo img-fluid" alt="logo" />
+                            <img src={editArticleImg || PlaceHolderImg2} onChange={handleImgChange} className="App-logo img-fluid" alt="logo" />
                         )}
                     </div>
 

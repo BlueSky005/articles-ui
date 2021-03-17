@@ -1,7 +1,7 @@
 import {
     PUBLISH_ARTICLE, FETCH_SELECTED_EDIT_ARTICLE, VIEW_EDIT_ARTICLE, UPDATE_ARTICLE,
+    VIEW_SELECTED_ARTICLE, FETCH_SELECTED_ARTICLE_DETAILS, REST_EDIT_ARTICLE_STATUS
     // DELETE_ARTICLE, VIEW_SUBMITTED_ARTICLE, VIEW_ALL_ARTICLES,
-    VIEW_SELECTED_ARTICLE, FETCH_SELECTED_ARTICLE_DETAILS
 } from '../articles/articleTypes';
 import { LOGIN_USER, REGISTER_USER, LOGOUT_USER } from '../users/userTypes';
 
@@ -38,10 +38,6 @@ const initialState = {
 
 const userArticleReducer = ( state = initialState, action ) => {
 
-    console.log( 'befire reducer hit' );
-
-    console.log( action );
-
     switch ( action.type ) {
         case PUBLISH_ARTICLE: return {
             ...state,
@@ -73,6 +69,11 @@ const userArticleReducer = ( state = initialState, action ) => {
             selectedEditArticleImage: action.payload.img
         }
         case UPDATE_ARTICLE: return {
+            ...state,
+            editArticleStatus: action.payload
+        }
+
+        case REST_EDIT_ARTICLE_STATUS: return {
             ...state,
             editArticleStatus: action.payload
         }

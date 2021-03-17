@@ -3,6 +3,7 @@ import Header from './Header';
 // import landingStyles from '../css/landingStyles.module.css';
 import PlaceHolderImg1 from '../assets/nothumb.jpg';
 import PlaceHolderImg2 from '../assets/nothumb.jpg';
+// import ImgLoader from '../assets/loader.gif';
 import LandingStyles from '../css/landingStyles.module.css';
 import { FaTags } from 'react-icons/fa';
 import { firebase } from '../firebase';
@@ -11,8 +12,8 @@ import { FaCannabis } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { viewSpecificArticle } from '../redux/articles/articleActions';
 
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
 import _ from "lodash";
 
 function Landing () {
@@ -24,6 +25,8 @@ function Landing () {
     const [topArticles, setTopArticles] = useState( [] );
     const [articles, setArticles] = useState( [] );
 
+    // const [imgLoadStatus, setImgLoadStatus] = useState( 0 );
+
     const viewArticleDetails = ( articleId ) => {
 
         dispatch( viewSpecificArticle( articleId ) );
@@ -31,9 +34,13 @@ function Landing () {
     }
     const loggedIn = useSelector( state => state.loggedIn );
     const loggedInStatus = useSelector( state => state.userLoginStatus );
+
+    // const imgChanged = () => {
+    //     setImgLoadStatus( 1 );
+    // }
+
     useEffect( () => {
         document.body.style.backgroundColor = "white";
-
         firebase.firestore().collection( 'articles' ).onSnapshot( ( snapshot ) => {
             const allArticles = snapshot.docs.map( ( doc ) => ( {
                 id: doc.id,
@@ -65,7 +72,9 @@ function Landing () {
     return (
         <>
             <Header />
+            {/* status {imgLoadStatus} */}
             <br />
+
             <div className="container">
 
                 <div className={`row ${LandingStyles.landingContainer}`}>
@@ -75,7 +84,18 @@ function Landing () {
                         {articles.map( ( article, index ) =>
                             <React.Fragment key={index}>
                                 <div className="">
+
+                                    {/* <LazyLoadImage effect="blur" className={`img-fluid ${LandingStyles.fullWidth}`} src={article.articleImg || PlaceHolderImg1} /> */}
+                                    {/* {imgLoadStatus === 0 ?
+                                        ( <img src={ImgLoader} className="img-fluid" />
+                                        ) :
+                                        (
+                                            <img onLoad={imgChanged} src={article.articleImg || PlaceHolderImg1} className={`img-fluid ${LandingStyles.fullWidth}`} />
+                                        )} */}
+
                                     <img src={article.articleImg || PlaceHolderImg1} className={`img-fluid ${LandingStyles.fullWidth}`} />
+
+
                                 </div>
 
                                 <br />

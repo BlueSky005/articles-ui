@@ -2,7 +2,5 @@ const LOGIN_USER = "LOGIN_USER";
 const REGISTER_USER = "REGISTER_USER";
 const LOGOUT_USER = "LOGOUT_USER";
 
-export { LOGIN_USER };
-export { REGISTER_USER };
-export { LOGOUT_USER };
+export { LOGIN_USER, REGISTER_USER, LOGOUT_USER };
 

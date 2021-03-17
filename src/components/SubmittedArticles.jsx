@@ -8,7 +8,7 @@ import { FaTrashAlt, FaRegEdit } from 'react-icons/fa';
 // import Pagination from './Pagination';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
+// import ReactPaginate from 'react-paginate';
 // import Pagination from "react-js-pagination";
 import swal from 'sweetalert';
 import { useHistory } from 'react-router-dom';

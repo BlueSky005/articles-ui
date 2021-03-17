@@ -7,7 +7,7 @@ import SubmittedArticles from './components/SubmittedArticles';
 import ViewArticle from './components/ViewArticles';
 import Registration from './components/Registration';
 import './css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App () {
 

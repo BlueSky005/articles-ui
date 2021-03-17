@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import registrationStyles from '../css/registrationStyles.module.css'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
